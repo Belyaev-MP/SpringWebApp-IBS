@@ -10,7 +10,7 @@
 <body>
 	<th:block layout:fragment="content">
 		<h1 th:text="${title}">Car List</h1>
-		
+		<input type="text" id="carsFilter"><br>
 		<br>
 		<div th:if="${cars} != null">
 			<table class="datatable" id="carList">
@@ -33,6 +33,7 @@
 		</div>
 	</th:block>
 	<th:block layout:fragment="jsscript">
+		<script th:src="@{/js/find-cars.js}"></script>
 	</th:block>
 </body>
 
