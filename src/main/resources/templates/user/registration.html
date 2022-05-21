@@ -11,25 +11,29 @@
 	<th:block layout:fragment="content">
 		<h1 th:text="${'User Registration'}">User Login Page</h1>
 
-		<form th:action="@{/user/registration}" method="post">
+		<form th:action="@{/user/registration}" th:method="post" th:object="${userForm}" autocomplete="off">
+			<input type="hidden" th:field="*{id}">
 			<div>
 				<label>Email: </label>
-				<input type="text" name="email">
+				<input type="text" th:field="*{email}" autocomplete="false">
+				<span th:errors="*{email}"></span>
 			</div>
 
-			<div>
-				<label>Name: </label>
-				<input type="text" name="name">
-			</div>
+            <div>
+                <label>Name: </label>
+                <input type="text" th:field="*{name}" autocomplete="false">
+                <span th:errors="*{name}"></span>
+            </div>
 
 			<div>
 				<label>Password: </label>
-				<input type="password" name="password">
+				<input type="password" th:field="*{password}" autocomplete="false">
+				<span th:errors="*{password}"></span>
 			</div>
 
 			<div class="form-group">
 				<input type="submit" name="login-submit" id="login-submit"
-					class="stdBtn" value="Registration">
+					class="stdBtn" value="Log In">
 			</div>
 		</form>
 
